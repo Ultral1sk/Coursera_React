@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Media } from 'reactstrap';
+
 import {
-    Card, CardImg, CardImgOverlay, CardText, CardBody,
+    Card, CardImg,  CardText, CardBody,
     CardTitle
 } from 'reactstrap';
 
@@ -9,7 +9,7 @@ class DishDetail extends Component {
 
     constructor(props) {
         super(props);
-
+        this.state = {}
 
     }
 
