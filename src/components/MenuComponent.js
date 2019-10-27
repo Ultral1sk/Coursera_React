@@ -3,6 +3,7 @@ import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
 
 /* if we know what we are receiving we can specify the name or the whole props obj (props)  */
     function RenderMenuItem({ dish, onClick }) {
+        console.log(dish)
         return(
             <Card key={dish.id} onClick={() => onClick(dish.id)}>
              <CardImg width="100%" src={dish.image} alt={dish.name} />
