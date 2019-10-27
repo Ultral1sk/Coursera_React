@@ -11,7 +11,7 @@ import {
     function RenderDish({ dish }) {
         if (dish != null)
             return (
-                <div>
+               <div className="row p-0 m-0">
                     <Card>
                         <CardImg top src={dish.image} alt={dish.name} />
                         <CardBody>
@@ -19,17 +19,13 @@ import {
                             <CardText>{dish.description}</CardText>
                         </CardBody>
                     </Card>
-                </div>
+                    </div>
             );
         else
             return (
                 <div></div>
             );
     }
-
-
-
-
 
     function RenderList({comments}) {
         const menu = comments.map((comment) => {
@@ -63,9 +59,9 @@ import {
                 <div>
                     <h4>Comments</h4>
 
-                    <div>
+                  
                         <RenderList comments={comments.comments} />
-                        </div>
+                    
                 </div>
             );
     }
@@ -74,17 +70,19 @@ import {
     const DishDetail = (props) => {
      
         return (
-            <div className="row">
-                <div className="col-12 col-md-5 m-1">
-                    <RenderDish dish={ props.dish } />
-                 
-                </div>
+            <div className="container">
+                <div className="row">
+                    <div className="col-12 col-md-5 m-1">
+                        <RenderDish dish={ props.dish } />
+                    
+                    </div>
 
-                <div className="col-12 col-md-5 m-1">
-           
-                    <RenderComments comments={props.dish} />
+                    <div className="col-12 col-md-5 m-1">
+            
+                        <RenderComments comments={ props.dish } />
+                    </div>
+                    
                 </div>
-                
             </div>
         );
     }
