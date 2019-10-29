@@ -24,7 +24,7 @@ import { Link } from 'react-router-dom'
     }
   
     function RenderComments({comments}  ) {
-        console.log(comments)
+     
             if (comments != null) {
 
                 return (                        
