@@ -7,12 +7,13 @@ import { Provider } from 'react-redux'; // this Provider Component from react-re
 // the redux store becomes available to all the componenets to our application
 import { ConfigureStore } from './redux/configureStore'; //  
 
-const store = ConfigureStore();
+const store = ConfigureStore(); // with this the store becomes available to us
 
 class App extends Component {
 
 
   render(){
+  
     return(
       <Provider store={store}>
         <BrowserRouter>

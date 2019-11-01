@@ -11,7 +11,7 @@ export const initialState = {
     dishes       : DISHES,
     comments     : COMMENTS,
     leaders      : LEADERS,
-    promotions   : PROMOTIONS,
+    promotions   : PROMOTIONS
 };
 
 /* 1 - this REDUCER function will receive the CURRENT STATE and an ACTION */
