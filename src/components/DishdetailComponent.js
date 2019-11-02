@@ -1,5 +1,5 @@
 import React from 'react';
-
+import CommentForm from './CommentForm';
 import { Card, CardImg,  CardText, CardBody, CardTitle , Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom'
 
@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
     function RenderDish({ dish }) {
      
             return (
-               <div className="row p-0 m-0">
+               <div className="row p-0 m-0" key={dish.id}>
                     <Card>
                         <CardImg top src={dish.image} alt={dish.name} />
                         <CardBody>
@@ -28,13 +28,13 @@ import { Link } from 'react-router-dom'
             if (comments != null) {
 
                 return (                        
-                
+                    <div>
                         <ul className='list-unstyled' >
                             {comments.map((comment) => {
                           
                                 return(
-                                <div>
-                                    <li key={comment.id}>
+                                <div key={comment.id}>
+                                    <li >
                                         <p>{comment.comment}</p>
                                         <p>--{comment.author}, 
                                             {new Intl.DateTimeFormat('en-US',
@@ -47,7 +47,8 @@ import { Link } from 'react-router-dom'
                             })}
                            
                         </ul>
-                  
+                        <CommentForm />
+                        </div>
                     );
                 }
 

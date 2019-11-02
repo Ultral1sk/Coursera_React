@@ -25,7 +25,7 @@ const mapStateToProps = state => {
 class Main extends Component {
   constructor(props) {
     super(props);
-
+    this.state = ''
 }
 
  
@@ -45,11 +45,11 @@ class Main extends Component {
     const DishWithId = ( {match} ) => {
         
       return(
+        <div>
         <DishDetail dish={this.props.dishes.filter((dish) => dish.id === parseInt(match.params.dishId,10))[0]}
-                 
-                    comments={this.props.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId,10))}
-             />
-             
+                    comments={this.props.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId,10))} />
+       
+        </div>
       );
       
     }

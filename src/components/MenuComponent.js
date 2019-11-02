@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardImg, CardImgOverlay, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+
 import { Link } from 'react-router-dom';
 /* if we know what we are receiving we can specify the name or the whole props obj (props)  */
    
@@ -24,7 +25,7 @@ import { Link } from 'react-router-dom';
                 return (
                     <div key={dish.id} className="col-12 col-md-5 m-1">
                         <RenderMenuItem dish={dish} />
-                    
+                     
                     </div>
                 );
             });
