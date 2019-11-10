@@ -38,7 +38,8 @@ class CommentForm extends Component {
         return (
             <React.Fragment>
                 <Button outline onClick={this.toggleModal}>
-                        <span className="fa fa-comment fa-lg">Submit Comment</span>
+                      <i class="fa fa-pencil mr-2"></i>
+                      Submit Comment
                 </Button>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>
@@ -52,10 +53,11 @@ class CommentForm extends Component {
                                 </Label>
                                 <Control.select model=".rating" id="rating" name="rating"
                                     className="form-control">
-                                    <option value=""> </option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
                                 </Control.select>
                             </div>
 
@@ -103,7 +105,7 @@ class CommentForm extends Component {
                     
                 </Modal>
             </React.Fragment>
-        )
+        );
     }
 
 }
