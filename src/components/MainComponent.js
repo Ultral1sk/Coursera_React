@@ -7,7 +7,9 @@ import Footer from './FooterComponent';
 import Contact from './ContactComponent'
 import DishDetail from './DishdetailComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'; // we import the withRouter we need it to connect other comp later
-import { connect } from 'react-redux'; // 
+import { connect } from 'react-redux'; 
+import { addComment } from '../redux/ActionCreators'; // we need to import this function because we want to obtain(create) a JS object which we can 
+// then DISPATCH to the store by calling calling store dispatch
 
 
 /*  this is maping the redux Store STATE into PROPS  that will become available into our component*/
@@ -21,6 +23,11 @@ const mapStateToProps = state => {
       leaders: state.leaders
     }
 }
+                        //   dispatch is a function that is in our store
+const mapDispatchToProps = ( dispatch ) => ({              //the dispatch function receives the addComment actionFunction and it will return the actionObject with the written parameters         
+       addComment : ( dishId, rating, author, comment ) => dispatch(addComment( dishId, rating, author, comment ))
+
+});
 
 class Main extends Component {
   constructor(props) {
@@ -28,7 +35,7 @@ class Main extends Component {
     this.state = ''
 }
 
- 
+  
  render(){
 
     const HomePage = () => {
@@ -47,7 +54,9 @@ class Main extends Component {
       return(
         <div>
         <DishDetail dish={this.props.dishes.filter((dish) => dish.id === parseInt(match.params.dishId,10))[0]}
-                    comments={this.props.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId,10))} />
+                    comments={this.props.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId,10))} 
+                    addComment={this.props.addComment}
+                    />
        
         </div>
       );
@@ -74,7 +83,7 @@ class Main extends Component {
 
 }
 
-export default withRouter((connect(mapStateToProps)(Main)));
+export default withRouter((connect(mapStateToProps, mapDispatchToProps)(Main)));
 // we are connection the  newly connected component to our STORE with the CONNECT function(component);
 // which is taking the mapStateToProps function as parameter  and the ACTUAL Component in this case Main component as parameter
 // but on onrder to connect this to our store we wrap everythign with the withRouter
